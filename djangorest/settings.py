@@ -86,17 +86,17 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'CLIENT': {
-            'host': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
-            'username': 'root',
-            'password': '0101@ABcd',
-            'authMechanism': 'SCRAM-SHA-1'
-        }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'CLIENT': {
+#             'host': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
+#             'username': 'root',
+#             'password': '0101@ABcd',
+#             'authMechanism': 'SCRAM-SHA-1'
+#         }
+#     }
+# }
 
 DATABASES = {
     'default': {
