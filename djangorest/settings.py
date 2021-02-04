@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'djangorest.wsgi.application'
+WSGI_APPLICATION = 'djangorest.wsgi.application'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
