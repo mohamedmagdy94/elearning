@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sign-up</title>
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div class="main">
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" action="http://127.0.0.1:8000/users" class="register-form" id="register-form">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Your Name" />
+                            </div>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Password" />
+                            </div>
+                            <div class="form-group form-button">
+                                <button type="submit" class="btn btn-info form-submit"> sign up </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="images/signup-image.jpg" alt="sing up image"></figure>
+                        <a href="sign-in.html" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+
+// process the form
+$('form').submit(function(event) {
+
+    // get the form data
+    // there are many ways to get this data using jQuery (you can use the class or id also)
+    var formData = {
+        'name'              : $('input[name=name]').val(),
+        'email'             : $('input[name=email]').val(),
+        'password'    : $('input[name=password]').val()
+    };
+
+    // process the form
+    $.ajax({
+        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+        url         : 'http://127.0.0.1:8000/users', // the url where we want to POST
+        data        : formData, // our data object
+    })
+        // using the done promise callback
+        .done(function(data) {
+            window.location.replace("./instructor-courses.html");
+
+            // log data to the console so we can see
+
+            // here we will handle errors and validation messages
+        });
+
+    // stop the form from submitting the normal way and refreshing the page
+    event.preventDefault();
+});
+
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">E-leadning</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" name="query"  type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="container card p-0 mt-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h6> courses </h6>
+                    </div>
+                    <div class="col-sm-4 offset-sm-4 text-right">
+                        <a href="javascrip:;" class="btn btn-icon border border-dark" class="btn btn-primary"
+                            data-toggle="modal" data-target="#addCourse">
+                            Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <th scope="row"> id </th>
+                                <th>name</th>
+                                <th>subscriber count</th>
+                                <th>Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td scope="row"> 1 </td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="addCourse" tabindex="-1" role="dialog" aria-labelledby="addCourseTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form action="" method="post">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addCourseTitle">Add course</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input type="text" name="title" id="title" class="form-control" placeholder="title" />
+                            </div>
+                            <div class="form-group">
+                                <textarea name="discription" id="discription" class="form-control"
+                                    placeholder="discription"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+
+// process the form
+$('form').submit(function(event) {
+
+    // get the form data
+    // there are many ways to get this data using jQuery (you can use the class or id also)
+    var formData = {
+        'query'             : $('input[name=query]').val(),
+    };
+
+    // process the form
+    $.ajax({
+        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        url         : 'http://127.0.0.1:8000/courses?query='+formData["query"], // the url where we want to POST
+        // data        : formData, // our data object
+    })
+        // using the done promise callback
+        .done(function (data) {
+            $('.table-row').remove();
+            for(k in data){
+                const id = data[k]["fields"]["identifier"];
+                const name = data[k]["fields"]["course_title"];
+                const count = data[k]["fields"]["num_subscribers"];
+                const subject = data[k]["fields"]["subject"];
+                $('.table tbody').append(`<tr class='table-row'><td>${id}</td><td>${name}</td><td>${count}</td><td>${subject}</td></tr>`);
+            }
+        });
+
+    // stop the form from submitting the normal way and refreshing the page
+    event.preventDefault();
+});
+
+});
+    </script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        url         : 'http://127.0.0.1:8000/courses', // the url where we want to POST
+    })
+        // using the done promise callback
+        .done(function (data) {
+            $('.table-row').remove();
+            for(k in data){
+                const id = data[k]["fields"]["identifier"];
+                const name = data[k]["fields"]["course_title"];
+                const count = data[k]["fields"]["num_subscribers"];
+                const subject = data[k]["fields"]["subject"];
+                $('.table tbody').append(`<tr class='table-row'><td>${id}</td><td>${name}</td><td>${count}</td><td>${subject}</td></tr>`);
+            }
+            
+      
+        });
+
+});
+    </script>
+</body>
+
+</html>
