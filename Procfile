@@ -1,1 +1,1 @@
-web: gunicorn djangorest.wsgi --log-file -
+web: gunicorn elearning.wsgi --log-file -
