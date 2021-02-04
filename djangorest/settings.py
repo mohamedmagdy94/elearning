@@ -91,7 +91,7 @@ DATABASES = {
            'ENGINE': 'djongo',
            'NAME': 'ezlistmongo',
            'CLIENT': {
-              'host': 'mongo://root:' + urllib.parse.quote_plus('0101@ABcd') + '@cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
+              'host': 'mongodb://root:' + urllib.parse.quote_plus('0101@ABcd') + '@cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
               'port': 27017,
               'username': 'root',
               'password': '0101@ABcd',
