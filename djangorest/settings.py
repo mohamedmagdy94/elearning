@@ -99,15 +99,26 @@ CORS_ORIGIN_ALLOW_ALL = True
 # }
 
 DATABASES = {
-    'default': {
+        'default': {
         'ENGINE': 'djongo',
         'NAME': 'elearning',
-        'HOST': 'cluster0-shard-00-01.84sae.mongodb.net',
-        'username': 'root',
-        'password': '0101@ABcd',
-        'port':'27017',
+        'HOST': 'mongodb+srv://root:0101@ABcd@cluster0.84sae.mongodb.net/<elearning>?retryWrites=true&w=majority',
+        'USER': 'root',
+        'PASSWORD': '0101@ABcd',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'elearning',
+#         'HOST': 'cluster0-shard-00-01.84sae.mongodb.net',
+#         'username': 'root',
+#         'password': '0101@ABcd',
+#         'port':'27017',
+#     }
+# }
 
 LOGGING = {
     'version': 1,
