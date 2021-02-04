@@ -86,39 +86,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'CLIENT': {
-#             'host': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
-#             'username': 'root',
-#             'password': '0101@ABcd',
-#             'authMechanism': 'SCRAM-SHA-1'
-#         }
-#     }
-# }
-
 DATABASES = {
-        'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'elearning',
-        'HOST': 'mongodb+srv://root:0101@ABcd@cluster0.84sae.mongodb.net/<elearning>?retryWrites=true&w=majority',
-        'USER': 'root',
-        'PASSWORD': '0101@ABcd',
-    }
-}
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'elearning',
-#         'HOST': 'cluster0-shard-00-01.84sae.mongodb.net',
-#         'username': 'root',
-#         'password': '0101@ABcd',
-#         'port':'27017',
-#     }
-# }
+       'default': {
+           'ENGINE': 'djongo',
+           'NAME': 'ezlistmongo',
+           'CLIENT': {
+              'host': 'mongodb+srv://root:' + urllib.parse.quote_plus('0101@ABcd') + '@cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
+              'port': 27017,
+              'username': 'root',
+              'password': '0101@ABcd',
+            }
+       }
+   }
 
 LOGGING = {
     'version': 1,
