@@ -89,7 +89,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
        'default': {
            'ENGINE': 'djongo',
-           'NAME': 'ezlistmongo',
+           'NAME': 'elearning',
            'CLIENT': {
               'host': 'mongodb://root:' + urllib.parse.quote_plus('0101@ABcd') + '@cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
               'port': 27017,
