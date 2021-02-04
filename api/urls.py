@@ -6,5 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url("courses",views.CourseApiView.as_view()), 
     url("users",views.UserApiView.as_view()), 
-    url("lectures",views.UserApiView.as_view()), 
+    url("lectures",views.LectureApiView.as_view()), 
 ]
