@@ -30,7 +30,7 @@ SECRET_KEY = ')682!e%lyr-wx80j8xc!y%l%dutvs8t$k+li!-)$o_vzy7qe)m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['demo-elearning2.herokuapp.com']
 
 
 # Application definition
@@ -85,28 +85,28 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'djongo',
-        'CLIENT': {
-            'host': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
-            'username': 'root',
-            'password': '0101@ABcd',
-            'authMechanism': 'SCRAM-SHA-1'
-        }
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'djongo',
-#         'NAME': 'elearning',
-#         'HOST': 'mongodb+srv://cluster0.84sae.mongodb.net',
-#         'username': 'root',
-#         'password': '0101@ABcd',
-#         'PORT': 27017,
+#         'CLIENT': {
+#             'host': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
+#             'username': 'root',
+#             'password': '0101@ABcd',
+#             'authMechanism': 'SCRAM-SHA-1'
+#         }
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'elearning',
+        'HOST': 'mongodb+srv://cluster0.84sae.mongodb.net/elearning?retryWrites=true&w=majority',
+        'username': 'root',
+        'password': '0101@ABcd',
+        'PORT': 27017,
+    }
+}
 
 LOGGING = {
     'version': 1,
