@@ -97,7 +97,7 @@ DATABASES = {
               'password': '0101@ABcd',
             }
        }
-   }
+}
 
 LOGGING = {
     'version': 1,
