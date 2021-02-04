@@ -30,7 +30,7 @@ SECRET_KEY = ')682!e%lyr-wx80j8xc!y%l%dutvs8t$k+li!-)$o_vzy7qe)m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['demo-elearning2.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
