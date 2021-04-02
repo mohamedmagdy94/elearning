@@ -26,7 +26,7 @@ class CourseApiView(APIView):
         data = serializers.serialize('json', allCourses)
         return HttpResponse(data, content_type="application/json")
     def post(self,request):
-        course=Course(identifier=0,course_title=request.POST['course_title'],num_subscribers=0,subject=request.POST['subject'],request_count=0)
+        course=Course(identifier=0,course_title=request.POST.get('course_title', False),num_subscribers=0,subject=request.POST.get('subject', False),request_count=0)
         allCourses=Course.objects.all()
         coursesSorted = merge_sort(allCourses, 0, len(allCourses) -1, lambda firstCourse, secondCourse: firstCourse.request_count > secondCourse.request_count)
         coursesSorted.save()
