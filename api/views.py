@@ -31,8 +31,8 @@ class CourseApiView(APIView):
         allCourses=Course.objects.all()
         merge_sort(list(allCourses), 0, len(list(allCourses)) -1, lambda firstCourse, secondCourse: firstCourse.request_count > secondCourse.request_count)
         Course.objects.all().delete()
-        for course in allCourses:
-            course.save()
+        for co in allCourses:
+            co.save()
         return HttpResponse('')    
     def delete(self,request):
         course=Course.objects.filter(course_title=query).first()
