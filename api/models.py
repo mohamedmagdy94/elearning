@@ -4,9 +4,9 @@ from djongo import models
 
 class Course(models.Model):
     _id = models.ObjectIdField()
-    identifier = models.IntegerField()
+    request_count = models.IntegerField()
     course_title = models.CharField(max_length=200)
-    num_subscribers = models.IntegerField()
+    num_subscribers = models.CharField(max_length=200)
     subject = models.CharField(max_length=200)
 
 class User(models.Model):
