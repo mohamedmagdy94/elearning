@@ -27,10 +27,13 @@ class CourseApiView(APIView):
         return HttpResponse(data, content_type="application/json")
     def post(self,request):
         course=Course(course_title=request.POST.get('course_title', False),num_subscribers=0,subject=request.POST.get('subject', False),request_count=0)
+        course.save()
         allCourses=Course.objects.all()
         coursesSorted = merge_sort(allCourses, 0, len(allCourses) -1, lambda firstCourse, secondCourse: firstCourse.request_count > secondCourse.request_count)
+        Course.objects.all().delete()
+        for course in coursesSorted:
+            course.save()
         coursesSorted.save()
-        course.save()
         return HttpResponse('')    
     def delete(self,request):
         course=Course.objects.filter(course_title=query).first()
