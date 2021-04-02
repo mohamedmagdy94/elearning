@@ -33,7 +33,6 @@ class CourseApiView(APIView):
         Course.objects.all().delete()
         for course in coursesSorted:
             course.save()
-        coursesSorted.save()
         return HttpResponse('')    
     def delete(self,request):
         course=Course.objects.filter(course_title=query).first()
