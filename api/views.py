@@ -21,7 +21,7 @@ class CourseApiView(APIView):
         else:
             allCourses=Course.objects.filter(course_title=query)
             for course in allCourses:
-                course.hits += 1
+                course.request_count += 1
                 course.save()
         data = serializers.serialize('json', allCourses)
         return HttpResponse(data, content_type="application/json")
