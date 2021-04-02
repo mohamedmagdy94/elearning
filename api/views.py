@@ -33,7 +33,7 @@ class CourseApiView(APIView):
         Course.objects.all().delete()
         for co in allCourses:
             co.save()
-        return HttpResponse('')    
+        return HttpResponse('',status=200)    
     def delete(self,request):
         course=Course.objects.filter(course_title=query).first()
         course.delete()
