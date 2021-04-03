@@ -17,7 +17,7 @@ class CourseApiView(APIView):
     def get(self,request):
         query = request.GET.get('query')
         if query is None:
-            allCourses=Course.objects.all()
+            allCourses=Course.objects.all().order_by('-request_count')
         else:
             allCourses=Course.objects.filter(course_title=query)
             for course in allCourses:
