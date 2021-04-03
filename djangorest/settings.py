@@ -32,7 +32,7 @@ DEBUG = True
 
 CORS_ORIGIN_ALLOW = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
