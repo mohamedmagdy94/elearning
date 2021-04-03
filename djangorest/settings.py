@@ -32,7 +32,7 @@ DEBUG = True
 
 CORS_ORIGIN_ALLOW = True
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'corsheaders.middleware.CorsMiddleware',
     # 'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework', 
