@@ -30,7 +30,6 @@ SECRET_KEY = ')682!e%lyr-wx80j8xc!y%l%dutvs8t$k+li!-)$o_vzy7qe)m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-CORS_ORIGIN_ALLOW = True
 
 ALLOWED_HOSTS = ['.herokuapp.com']
 
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
     # 'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework', 
@@ -59,6 +59,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
@@ -149,6 +151,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CORS_ORIGIN_ALLOW = True
 
 
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
